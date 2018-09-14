@@ -92,7 +92,12 @@ public class OAuth1aService extends OAuthService {
      * @return the callback url
      */
     public String buildCallbackUrl(TwitterAuthConfig authConfig) {
-        return Uri.parse(CALLBACK_URL).buildUpon()
+        String callbackUrl =
+                authConfig.getCallbackUrl() != null
+                            && !authConfig.getCallbackUrl().isEmpty()
+                        ? authConfig.getCallbackUrl()
+                        : CALLBACK_URL;
+        return Uri.parse(callbackUrl).buildUpon()
                 .appendQueryParameter("version", getTwitterCore().getVersion())
                 .appendQueryParameter("app", authConfig.getConsumerKey())
                 .build()

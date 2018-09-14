@@ -44,6 +44,7 @@ public class TwitterAuthConfig implements Parcelable {
 
     private final String consumerKey;
     private final String consumerSecret;
+    private final String callbackUrl;
 
     /**
      * @param consumerKey    The consumer key.
@@ -60,9 +61,27 @@ public class TwitterAuthConfig implements Parcelable {
         this.consumerSecret = sanitizeAttribute(consumerSecret);
     }
 
+    /**
+     * @param consumerKey    The consumer key.
+     * @param consumerSecret The consumer secret.
+     * @param callbackUrl    The callback url.
+     *
+     * @throws java.lang.IllegalArgumentException if consumer key or consumer secret is null.
+     */
+    public TwitterAuthConfig(String consumerKey, String consumerSecret, String callbackUrl) {
+        if (consumerKey == null || consumerSecret == null) {
+            throw new IllegalArgumentException(
+                    "TwitterAuthConfig must not be created with null consumer key or secret.");
+        }
+        this.consumerKey = sanitizeAttribute(consumerKey);
+        this.consumerSecret = sanitizeAttribute(consumerSecret);
+        this.callbackUrl = sanitizeAttribute(callbackUrl);
+    }
+
     private TwitterAuthConfig(Parcel in) {
         consumerKey = in.readString();
         consumerSecret = in.readString();
+        callbackUrl = in.readString();
     }
 
     /**
@@ -77,6 +96,13 @@ public class TwitterAuthConfig implements Parcelable {
      */
     public String getConsumerSecret() {
         return consumerSecret;
+    }
+
+    /**
+     * @return the callback url
+     */
+    public String getCallbackUrl() {
+        return callbackUrl;
     }
 
     /**
@@ -105,5 +131,6 @@ public class TwitterAuthConfig implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(consumerKey);
         out.writeString(consumerSecret);
+        out.writeString(callbackUrl);
     }
 }
