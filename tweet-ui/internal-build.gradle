@@ -96,14 +96,15 @@ dependencies {
     implementation dependency.supportCoreV4
     implementation dependency.supportCompatV4
     implementation dependency.recyclerview
+    implementation dependency.junit
 
-    androidTestCompile dependency.retrofitMock
-    androidTestCompile dependency.mockito
-    androidTestCompile dependency.dexmakerMockito
+    androidTestImplementation dependency.retrofitMock
+    androidTestImplementation dependency.mockito
+    androidTestImplementation dependency.dexmakerMockito
 
-    testCompile dependency.mockito
-    testCompile dependency.junit
-    testCompile(dependency.robolectric) {
+    androidTestImplementation dependency.mockito
+    androidTestImplementation dependency.junit
+    androidTestImplementation(dependency.robolectric) {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }

@@ -66,13 +66,13 @@ dependencies {
     implementation dependency.picasso
     implementation dependency.tweetText
 
-    androidTestCompile dependency.mockito
-    androidTestCompile dependency.dexmakerMockito
+    androidTestImplementation dependency.mockito
+    androidTestImplementation dependency.dexmakerMockito
 
-    testCompile dependency.mockito
-    testCompile dependency.junit
-    testCompile dependency.retrofitMock
-    testCompile(dependency.robolectric) {
+    androidTestImplementation dependency.mockito
+    androidTestImplementation dependency.junit
+    androidTestImplementation dependency.retrofitMock
+    androidTestImplementation(dependency.robolectric) {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
