@@ -38,27 +38,7 @@ class FileUtils {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     static String getPath(final Context context, final Uri uri) {
-        final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
-        if (isKitKat && isMediaDocumentAuthority(uri)) {
-            final String documentId = DocumentsContract.getDocumentId(uri); // e.g. "image:1234"
-            final String[] parts = documentId.split(":");
-            final String type = parts[0];
-
-            final Uri contentUri;
-            if ("image".equals(type)) {
-                contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-            } else {
-                // reject video or audio documents
-                return null;
-            }
-
-            // query content resolver for MediaStore id column
-            final String selection = "_id=?";
-            final String[] args = new String[] {
-                    parts[1]
-            };
-            return resolveFilePath(context, contentUri, selection, args);
-        } else if (isContentScheme(uri)) {
+        if (isContentScheme(uri)) {
             return resolveFilePath(context, uri, null, null);
         } else if (isFileScheme(uri)) {
             return uri.getPath();
