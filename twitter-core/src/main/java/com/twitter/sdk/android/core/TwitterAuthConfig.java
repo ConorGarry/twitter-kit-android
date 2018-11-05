@@ -59,6 +59,7 @@ public class TwitterAuthConfig implements Parcelable {
         }
         this.consumerKey = sanitizeAttribute(consumerKey);
         this.consumerSecret = sanitizeAttribute(consumerSecret);
+        this.callbackUrl = "";
     }
 
     /**
