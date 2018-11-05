@@ -38,18 +38,18 @@ import com.twitter.sdk.android.tweetcomposer.internal.util.ObservableScrollView;
 import java.util.Locale;
 
 public class ComposerView extends LinearLayout {
-    ImageView avatarView;
-    ImageView closeView;
-    EditText tweetEditView;
-    TextView charCountView;
-    Button tweetButton;
-    ObservableScrollView scrollView;
-    View divider;
+    private ImageView avatarView;
+    private ImageView closeView;
+    private EditText tweetEditView;
+    private TextView charCountView;
+    private Button tweetButton;
+    private ObservableScrollView scrollView;
+    private View divider;
     // styled drawables for images
-    ColorDrawable mediaBg;
+    private ColorDrawable mediaBg;
     // callbacks
-    ImageView imageView;
-    ComposerController.ComposerCallbacks callbacks;
+    private ImageView imageView;
+    private ComposerController.ComposerCallbacks callbacks;
 
     private Picasso imageLoader;
 
@@ -113,7 +113,7 @@ public class ComposerView extends LinearLayout {
         });
     }
 
-    void findSubviews() {
+    private void findSubviews() {
         avatarView = findViewById(R.id.tw__author_avatar);
         closeView = findViewById(R.id.tw__composer_close);
         tweetEditView = findViewById(R.id.tw__edit_tweet);
@@ -141,7 +141,7 @@ public class ComposerView extends LinearLayout {
         }
     }
 
-    String getTweetText() {
+    private String getTweetText() {
         return tweetEditView.getText().toString();
     }
 
