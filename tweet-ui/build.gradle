@@ -67,13 +67,16 @@ android {
 }
 
 dependencies {
-    api project(':twitter-core')
+    implementation project(':twitter-core')
 
     implementation dependency.picasso
     implementation dependency.supportCoreV4
     implementation dependency.supportCompatV4
     implementation dependency.recyclerview
     implementation dependency.junit
+    implementation dependency.okHttp
+    implementation dependency.gson
+    implementation dependency.retrofit
 
     androidTestImplementation dependency.retrofitMock
     androidTestImplementation dependency.mockito

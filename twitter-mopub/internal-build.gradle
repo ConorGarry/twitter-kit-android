@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    api (dependency.mopub) {
+    implementation (dependency.mopub) {
         transitive = true
     }
 

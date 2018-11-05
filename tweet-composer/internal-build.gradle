@@ -82,9 +82,10 @@ ext.projectDependencies = [
 
 dependencies {
     projectDependencies.each { path ->
-        api project(path: path)
+        implementation project(path: path)
     }
     implementation dependency.picasso
+    implementation dependency.retrofit
     implementation dependency.tweetText
 
     androidTestImplementation dependency.mockito
