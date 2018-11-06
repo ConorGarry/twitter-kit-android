@@ -17,6 +17,8 @@
 
 package com.twitter.sdk.android.tweetui;
 
+import android.annotation.SuppressLint;
+
 import com.twitter.sdk.android.core.models.Tweet;
 
 import java.util.ArrayList;
@@ -56,6 +58,7 @@ final class Utils {
      * @param tweetIds ordered list of Tweet ids
      * @param tweets unordered list of Tweet results
      */
+    @SuppressLint("UseSparseArrays")
     static List<Tweet> orderTweets(List<Long> tweetIds, List<Tweet> tweets) {
         final HashMap<Long, Tweet> idToTweet = new HashMap<>();
         final ArrayList<Tweet> ordered = new ArrayList<>();

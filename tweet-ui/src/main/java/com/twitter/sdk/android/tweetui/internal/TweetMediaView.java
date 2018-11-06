@@ -23,7 +23,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -139,8 +138,7 @@ public class TweetMediaView extends ViewGroup implements View.OnClickListener {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        if (internalRoundedCornersEnabled &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+        if (internalRoundedCornersEnabled) {
             final int saveState = canvas.save();
             canvas.clipPath(path);
             super.dispatchDraw(canvas);
