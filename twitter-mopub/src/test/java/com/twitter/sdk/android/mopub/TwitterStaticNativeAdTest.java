@@ -17,15 +17,15 @@
 
 package com.twitter.sdk.android.mopub;
 
-import android.test.AndroidTestCase;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
+import static junit.framework.TestCase.assertEquals;
+
 @RunWith(RobolectricTestRunner.class)
-public class TwitterStaticNativeAdTest extends AndroidTestCase {
+public class TwitterStaticNativeAdTest {
 
     @Test
     public void testStyleAttrsForDefaultTheme() {
