@@ -25,6 +25,7 @@ out
 *.ipr
 *.iws
 *.iml
+*.exec
 local.properties
 captures/
 .externalNativeBuild
