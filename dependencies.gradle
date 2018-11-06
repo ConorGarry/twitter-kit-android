@@ -12,7 +12,7 @@ ext {
 
     dependency = [
             // Gradle plugins
-            spoonGradlePlugin          : 'com.stanfy.spoon:spoon-gradle-plugin:1.0.4',
+            //spoonGradlePlugin          : 'com.stanfy.spoon:spoon-gradle-plugin:1.0.4',
             androidGradlePlugin        : 'com.android.tools.build:gradle:3.1.1',
 
             // Mopub

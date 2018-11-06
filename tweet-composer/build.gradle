@@ -56,7 +56,7 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        //unitTests.includeAndroidResources true
+        unitTests.includeAndroidResources true
     }
 }
 
@@ -66,6 +66,14 @@ dependencies {
     implementation dependency.picasso
     implementation dependency.retrofit
     implementation dependency.tweetText
+
+    implementation dependency.mockito
+    implementation dependency.junit
+    implementation dependency.retrofitMock
+    implementation(dependency.robolectric) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
 
     androidTestImplementation dependency.mockito
     androidTestImplementation dependency.dexmakerMockito

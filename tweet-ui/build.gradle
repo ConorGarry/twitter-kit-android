@@ -62,7 +62,7 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        //unitTests.includeAndroidResources true
+        unitTests.includeAndroidResources true
     }
 }
 
@@ -73,10 +73,16 @@ dependencies {
     implementation dependency.supportCoreV4
     implementation dependency.supportCompatV4
     implementation dependency.recyclerview
-    implementation dependency.junit
     implementation dependency.okHttp
     implementation dependency.gson
     implementation dependency.retrofit
+
+    implementation dependency.mockito
+    implementation dependency.junit
+    implementation(dependency.robolectric) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
 
     androidTestImplementation dependency.retrofitMock
     androidTestImplementation dependency.mockito

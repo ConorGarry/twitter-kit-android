@@ -29,6 +29,7 @@ android {
 
     lintOptions {
         warningsAsErrors true
+        disable 'InvalidPackage'
     }
 
     buildTypes {

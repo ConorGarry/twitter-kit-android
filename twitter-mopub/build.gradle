@@ -47,6 +47,7 @@ android {
 
     lintOptions {
         warningsAsErrors true
+        disable 'InvalidPackage'
     }
 
     compileOptions {
@@ -62,14 +63,20 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        //unitTests.includeAndroidResources true
+        unitTests.includeAndroidResources true
     }
 }
 
 dependencies {
-
     implementation (dependency.mopub) {
         transitive = true
+    }
+
+    implementation dependency.mockito
+    implementation dependency.junit
+    implementation(dependency.robolectric) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
 
     androidTestImplementation dependency.mockito

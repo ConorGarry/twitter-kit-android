@@ -73,7 +73,7 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-        //unitTests.includeAndroidResources true
+        unitTests.includeAndroidResources true
     }
 }
 
@@ -82,9 +82,16 @@ dependencies {
         transitive = true
     }
 
-    testCompile dependency.mockito
-    testCompile dependency.junit
-    testCompile(dependency.robolectric) {
+    implementation dependency.mockito
+    implementation dependency.junit
+    implementation(dependency.robolectric) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
+
+    androidTestImplementation dependency.mockito
+    androidTestImplementation dependency.junit
+    androidTestImplementation(dependency.robolectric) {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
